@@ -7,11 +7,22 @@ const sum = (value1, value2) => {
 };
 
 
-const getSqlQuery = (table, columns = []) => {
-    const selectColumns = columns.length > 0 ? '' : '*';
-    return `select ${selectColumns} from ${table}`;
+const getSqlQuery = (table, columns, whereCondition) => {
+    let selectColumns = '*'
+    if (columns.length > 0) {
+        selectColumns = columns;
+    }
+    let customQuery=`select ${selectColumns} from ${table}`;
+    if (whereCondition.length > 0) {
+        let email=whereCondition[0].email;
+        customQuery = customQuery+ ` where email='${email}'`;
+    }
+    return customQuery
 }
+
+
 
 module.exports = {
     helloWord, sum, getSqlQuery
 }
+
