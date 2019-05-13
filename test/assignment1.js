@@ -24,20 +24,23 @@ describe('Assignment 1: Product', () => {
                 [],
                 [
                     { 'id': '1' }
-                ]
+                ],
+                [
+                  'desc'
+                ],
             ));
     })
 
     it('Generate a select query to select all columns from table with order by multiple columns', () => {
-        assert.equal('select id,name from products order by name,category Asc',
+        assert.equal('select * from products order by name, category',
             sqlQueryBuilder(
                 'products',
-                ['id', 'name'],
+                [],
                 [],
                 [
-                    { 'id': '1' }
+                    { 'name': 'samsung' },
+                    { 'category': 'mobile' },
                 ]
             ));
     })
-
 })

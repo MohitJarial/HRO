@@ -1,4 +1,4 @@
-const sqlQueryBuilder = (table, columns, whereCondition, orderByColumn=[]) => {
+const sqlQueryBuilder = (table, columns, whereCondition, orderByColumn = [], mode = []) => {
     let selectColumns = '*'
     if (columns.length > 0) {
         selectColumns = columns;
@@ -23,13 +23,12 @@ const sqlQueryBuilder = (table, columns, whereCondition, orderByColumn=[]) => {
             }
             else
                 customQuery = customQuery.concat(` order by ${Object.keys(item)[0]}`);
-        }      
-        customQuery = customQuery.concat(` desc`);
+        }
+        const orderBy = mode.length > 0 ? mode[0]:``;
+        customQuery = customQuery.concat(` ${orderBy}`);
     }
-    return customQuery
+    return customQuery.trim()
 }
-
-
 
 
 module.exports = {
