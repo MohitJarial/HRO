@@ -1,6 +1,6 @@
 
 const assert = require('chai').assert;
-const { sqlQueryBuilder } = require('../model/assignment1Model')
+const { sqlQueryBuilder,SqlUpperCase } = require('../model/assignment1Model')
 
 
 describe('Assignment 1: Product', () => {
@@ -41,6 +41,21 @@ describe('Assignment 1: Product', () => {
                     { 'name': 'samsung' },
                     { 'category': 'mobile' },
                 ]
+            ));
+    })
+
+    it('Generate a select query to select specific columns from a table, with order by on a column - with capitalized keywords, and correct spacings', () => {
+        assert.equal('SELECT id,name FROM products ORDER BY id desc',
+        SqlUpperCase(
+                'products',
+                ['id', 'name'],
+                [],
+                [
+                    { 'id': '1' }
+                ],
+                [
+                  'desc'
+                ],
             ));
     })
 })
