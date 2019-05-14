@@ -1,6 +1,6 @@
 
 const assert = require('chai').assert;
-const { sqlQueryBuilder,SqlUpperCase } = require('../model/assignment1Model')
+const { sqlQueryBuilder, sqlUpperCase } = require('../model/assignment1Model')
 
 
 describe('Assignment 1: Product', () => {
@@ -26,7 +26,7 @@ describe('Assignment 1: Product', () => {
                     { 'id': '1' }
                 ],
                 [
-                  'desc'
+                    'desc'
                 ],
             ));
     })
@@ -46,7 +46,7 @@ describe('Assignment 1: Product', () => {
 
     it('Generate a select query to select specific columns from a table, with order by on a column - with capitalized keywords, and correct spacings', () => {
         assert.equal('SELECT id,name FROM products ORDER BY id desc',
-        SqlUpperCase(
+            sqlUpperCase(
                 'products',
                 ['id', 'name'],
                 [],
@@ -54,8 +54,24 @@ describe('Assignment 1: Product', () => {
                     { 'id': '1' }
                 ],
                 [
-                  'desc'
+                    'desc'
                 ],
             ));
     })
+
+    // it('Should be able to add limit', () => {
+    //     assert.equal('select * from users limit 10',
+    //     sqlQueryBuilder(
+    //             'users',
+    //             [],
+    //             [],
+    //             [],
+    //             [],
+    //             [ 
+    //                 {
+    //                     'limit': 10
+    //                 }
+    //             ]
+    //         ))
+    // })
 })

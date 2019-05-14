@@ -1,4 +1,4 @@
-const sqlQueryBuilder = (table, columns, whereCondition, orderByColumn = [], mode = []) => {
+const sqlQueryBuilder = (table, columns, whereCondition, orderByColumn = [], mode = [], rowLimit = []) => {
     let selectColumns = '*'
     if (columns.length > 0) {
         selectColumns = columns;
@@ -24,14 +24,18 @@ const sqlQueryBuilder = (table, columns, whereCondition, orderByColumn = [], mod
             else
                 customQuery = customQuery.concat(` order by ${Object.keys(item)[0]}`);
         }
-        const orderBy = mode.length > 0 ? mode[0]:``;
+        const orderBy = mode.length > 0 ? mode[0] : ``;
         customQuery = customQuery.concat(` ${orderBy}`);
+    }
+    if(rowLimit.length>0)
+    {
+        customQuery = customQuery.concat(` ${Object.keys(rowLimit[0])[0] } ${Object.keys(rowLimit[0])[1] }`) 
     }
     return customQuery.trim()
 }
 
 
-const SqlUpperCase = (table, columns, whereCondition, orderByColumn = [], mode = []) => {
+const sqlUpperCase = (table, columns, whereCondition, orderByColumn = [], mode = []) => {
     let selectColumns = '*'
     if (columns.length > 0) {
         selectColumns = columns;
@@ -57,12 +61,12 @@ const SqlUpperCase = (table, columns, whereCondition, orderByColumn = [], mode =
             else
                 customQuery = customQuery.concat(` ORDER BY ${Object.keys(item)[0]}`);
         }
-        const orderBy = mode.length > 0 ? mode[0]:``;
+        const orderBy = mode.length > 0 ? mode[0] : ``;
         customQuery = customQuery.concat(` ${orderBy}`);
     }
     return customQuery.trim()
 }
 
 module.exports = {
-    sqlQueryBuilder, SqlUpperCase
+    sqlQueryBuilder, sqlUpperCase
 }
