@@ -5,6 +5,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   state.associate = (models)=> {
     // associations can be defined here
+    state.hasMany(models.user)
   };
   return state;
 };
