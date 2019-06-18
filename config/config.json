@@ -2,14 +2,14 @@
   "development": {
     "username": "postgres",
     "password": "ucreate",
-    "database": "postgres",
+    "database": "tdd_development_database",
     "host": "localhost",
     "dialect": "postgres"
   },
   "test": {
     "username": "postgres",
     "password": "ucreate",
-    "database": "postgres",
+    "database": "tdd_development_database",
     "host": "localhost",
     "dialect": "postgres"
   },
