@@ -1,6 +1,6 @@
 
 const assert = require('chai').assert;
-const { sqlQueryBuilder, sqlUpperCase } = require('../model/assignment1Model')
+const { sqlQueryBuilder, sqlUpperCase } = require('../app/dal/assignment1Model')
 
 
 describe('Assignment 1: Product', () => {

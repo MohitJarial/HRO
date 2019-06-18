@@ -1,6 +1,6 @@
 
 const assert = require('chai').assert;
-const { sum, helloWord, getSqlQuery } = require('../model/usertest')
+const { sum, helloWord, getSqlQuery } = require('../app/dal/usertest')
 
 describe('helloTest', () => {
     it('App should return hello', () => {
