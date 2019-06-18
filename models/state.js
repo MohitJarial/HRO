@@ -1,11 +1,11 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  const state = sequelize.define('state', {
+  const states = sequelize.define('states', {
     name: DataTypes.STRING
   }, {});
-  state.associate = (models)=> {
+  states.associate = (models)=> {
     // associations can be defined here
-    state.hasMany(models.user)
+    states.hasMany(models.users)
   };
-  return state;
+  return states;
 };

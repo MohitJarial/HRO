@@ -1,6 +1,6 @@
 [
     {
-        "model": "state",
+        "model": "states",
         "data": {
             "name": "Punjab",
             "createAt" : "2019-06-13T10:22:07.663Z",
@@ -8,7 +8,7 @@
         }
     },
     {
-        "model": "state",
+        "model": "states",
         "data": {
             "name": "Hariyana",
             "createAt" : "2019-06-13T10:22:07.663Z",
@@ -16,7 +16,7 @@
         }
     },
     {
-        "model": "state",
+        "model": "states",
         "data": {
             "name": "Himachal Pradesh",
             "createAt" : "2019-06-13T10:22:07.663Z",
