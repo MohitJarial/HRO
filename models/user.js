@@ -6,8 +6,9 @@ module.exports = (sequelize, DataTypes) => {
     phone: DataTypes.STRING,
     stateId: DataTypes.INTEGER
   }, {});
-  user.associate = function(models) {
+  user.associate = (models)=>{
     // associations can be defined here
+    user.belongsTo(models.state);
   };
   return user;
 };
