@@ -1,17 +1,22 @@
-var express = require('express');
-var router = express.Router();
-const { sum, helloWord, getSqlQuery } = require('../model/usertest')
+const express = require('express');
+const router = express.Router();
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-  getSqlQuery('users', [],
-    [
-      {
-      'email': 'abc@gmail.com'
-     }
-    ]
-  );
-  res.render('index', { title: 'HRO' });
+//   let a = 2437;
+//   let b = 875;
+//   const algo = (x, y) => {
+//     if (x == y) {
+//         return y;
+//     }
+//     x = x > y ? x - y : x;
+//     y = y > x ? y - x : y;
+//     return algo(x , y);
+// }
+
+//console.log("Answer would be : " + algo(a, b));
+ 
+res.render('index', { title: 'HRO' });
 });
 
 module.exports = router;

@@ -1,8 +1,62 @@
-<html>
+{{!-- <html>
     <head>
         <title>:: {{title}} ::</title>
     </head>
     <body>
         <p>Hello, Mohit! Welcome to the this World!</p>
     </body>
+</html> --}}
+
+<html>
+
+<head>
+    <style>
+        .primary {
+            
+            border: 3px solid #73AD21;
+            background-color: gray;
+            position: relative;
+            height: 700px;
+            width: 100%;
+        }
+
+        .left {
+            position: absolute;
+        }
+
+        .right {
+            position: absolute;
+            right: 0;
+        }
+
+        .bottom {
+            position: absolute;
+            bottom: 0;
+        }
+
+        .right-bottom {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+        }
+
+        .center {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="primaryDiv">
+        <div class="left">Left </div>
+        <div class="right"> Right</div>
+        <div class="center">Center</div>
+        <div class="bottom">Bottom</div>
+        <div class="right-bottom">Bottom Right</div>
+    </div>
+</body>
+
 </html>
