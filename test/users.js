@@ -1,38 +1,39 @@
 
 const sequelizeFixtures = require('sequelize-fixtures');
 const models = require('./../models/index');
-const { createUser, updateUser} = require('../app/dal/users');
+const { createUser, updateUser } = require('../app/dal/users');
 const assert = require('chai').assert;
 const path = require('path');
 
 
+
 describe('User Services', () => {
-    before(() => {
+    beforeEach(() =>
+
         sequelizeFixtures.loadFile(
-            path.join(__dirname, '/fixtures/states.json'),models)
-    })
-    const updateInfo = {
+            path.join(__dirname, '/fixtures/states.js'), models));
+
+    const userInfo = {
         userName: 'mohit',
-        email : 'mohit.jarial@gmail.com',
+        email: 'mohit.jarial@gmail.com',
         phone: '99148040555',
-        stateId : 1
-       };
-
-    it.only('Create User', () => {
-       const response = createUser(updateInfo);
-       assert.ok(response);
+    };
+   
+    it('Create User', async () => {
+        const sId = await models.states.findAll();
+        userInfo.stateId = sId[0].id;
+        const response = createUser(userInfo);
+        assert.ok(response);
     });
 
-    it('Update User', async () => {
-        const userInfo = await createUser(updateInfo);
-          const updateinfo = updateUser(updateInfo, userInfo.id);
-          assert.ok(updateinfo);
+    it.only('Update User', async () => {
+        const sId = await models.states.findAll();
+        userInfo.stateId = sId[0].id;
+    
+     const retriveInfo = await createUser(userInfo);
+     const updateinfo = updateUser(updateInfo, retriveInfo.id);
+       // const updateinfo = updateUser({ name: 'jaspal' }, uId[0].id);
+        
+        assert.ok(updateinfo);
     });
-    // after(() => {
-    //    setTimeout(() => {
-    //     models.sequelize.sync({
-    //             force: true
-    //         });
-    //    }, 5000); 
-    // })
 });

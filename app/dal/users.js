@@ -1,10 +1,8 @@
 const models = require('../../models');
 
-const createUser = async (userInfo) => {
-    models.users.create(userInfo);
-}
+const createUser = userInfo =>  models.users.create(userInfo);
 
-const updateUser = async (userInfo, id) => {
+const updateUser =  (userInfo, id) => {
     models.users.update(userInfo, { where: { id } });
 }
 

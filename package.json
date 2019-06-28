@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "test": "mocha"
+    "test": "cross-env-shell NODE_ENV=test \"node_modules/.bin/sequelize db:migrate:undo:all && node_modules/.bin/sequelize db:migrate && npm run spec\"",
+    "spec": "cross-env-shell NODE_ENV=test  \"mocha --recursive --timeout 25000\""
   },
   "dependencies": {
     "cookie-parser": "~1.4.3",
@@ -22,7 +23,9 @@
   },
   "devDependencies": {
     "chai": "^4.2.0",
+    "cross-env": "^5.2.0",
     "mocha": "^6.1.4",
+    "nodemon": "^1.19.1",
     "sequelize-fixtures": "^0.10.0"
   }
 }
